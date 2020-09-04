@@ -1,7 +1,7 @@
 module load AdapterRemoval
-FASTA='/groups/hologenomics/jagerbo/data/5-HappyFish/2-16S_profiling/0-data'
-WORK='/groups/hologenomics/jagerbo/data/5-HappyFish/2-16S_profiling/1-Demux'
-for a in 'D9' 'D14'
+FASTA=''
+WORK=''
+for a in ''
   do
     AdapterRemoval --file1 $FASTA/"$a"_1.fq.gz \
                 --file2 $FASTA/"$a"_2.fq.gz \
@@ -11,14 +11,14 @@ for a in 'D9' 'D14'
 done
 
 ## clean up
-for a in 'D1' 'D2' 'D3' 'D4' 'D5' 'D6' 'D7' 'D8' 'D9' 'D10' 'D11' 'D12' 'D13' 'D14' 'D15' 'D16' 'D17' 'D18'
+for a in ''
   do
     rm $WORK/"$a"/*.settings
     rm $WORK/"$a"/*.singleton.truncated
     rm $WORK/"$a"/*.discarded
 done
 #Rename files
-for a in 'D1' 'D2' 'D3' 'D4' 'D5' 'D6' 'D7' 'D8' 'D9' 'D10' 'D11' 'D12' 'D13' 'D14' 'D15' 'D16' 'D17' 'D18'
+for a in ''
   do
     echo "Yes Master, i'll rename the wierd AdapterRemoval name"
     cd "$a"
@@ -30,7 +30,7 @@ for a in 'D1' 'D2' 'D3' 'D4' 'D5' 'D6' 'D7' 'D8' 'D9' 'D10' 'D11' 'D12' 'D13' 'D
     cd ..
 done
 
-for a in 'D1' 'D2' 'D3' 'D4' 'D5' 'D6' 'D7' 'D8' 'D9' 'D10' 'D11' 'D12' 'D13' 'D14' 'D15' 'D16' 'D17' 'D18'
+for a in ''
   do
     echo "Yes Master, i'll move samples from $a to the new directory"
     cp $WORK/"$a"/*.fq $WORK/All/
