@@ -7,9 +7,7 @@
 #set dependencies
 library(dada2)
 packageVersion("dada2") # 1.11.5 when this was put together
-setwd("HappyFish/16S/")
 list.files() # make sure what we think is here is actually here
-
 
 #r set create data and check QC
 ## first we're setting a few variables we're going to use ##
