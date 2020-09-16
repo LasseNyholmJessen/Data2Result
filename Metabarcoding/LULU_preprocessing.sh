@@ -1,3 +1,4 @@
+## This is basically what Tobias Frøslev has written in his Githut: https://github.com/tobiasgf/lulu, thanks Tobias!
 # LULU preprocessing
 module load blast+
 makeblastdb -in ASVs.fa -parse_seqids -dbtype nucl
