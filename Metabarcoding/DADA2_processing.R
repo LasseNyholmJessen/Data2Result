@@ -68,10 +68,11 @@ err_reverse_reads <- learnErrors(filtRs, multithread=TRUE)
 #the sample names in these objects are initially the file names of the samples, this sets them to the sample names for the rest of the workflow
 
 #QC filtered reads
-derep_forward <- derepFastq(filtFs, verbose=TRUE)
-names(derep_forward) <- sample.names
-derep_reverse <- derepFastq(filtRs, verbose=TRUE)
-names(derep_reverse) <- sample.names
+exists <- file.exists(filtFs)
+derep_forward <- derepFastq(filtFs[exists], verbose=TRUE)
+derep_reverse <- derepFastq(filtRs[exists], verbose=TRUE)
+names(derepFs) <- sample.names[exists]
+names(derepRs) <- sample.names[exists]
 
 #Inferring of ASVs
 #It does this by incorporating the consensus quality profiles and abundances of each unique sequence, and then figuring out if each sequence more likely to be of biological origin or more likely to be spurious.
